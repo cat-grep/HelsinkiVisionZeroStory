@@ -1,0 +1,65 @@
+[
+  {
+    "title": "Forgiving Street Principles",
+    "summary": "Intersections were redesigned with raised zebra crossings, tighter curb radii, and protected cycle tracks to follow “forgiving street” principles.",
+    "caption": "Intersection redesign reduces impact speeds and creates safer movements.",
+    "source": "https://vayla.fi/en/goal-guarantee-good-health-and-well-being-for-people-of-all-ages1",
+    "image": "1_ForgivingStreetPrinciples.jpg"
+  },
+  {
+    "title": "30 km/h Zones",
+    "summary": "Over half of Helsinki’s urban street network now carries 30 km/h limits. The shift significantly lowered collision severity.",
+    "caption": "30-km/h zones form the backbone of Helsinki’s Vision Zero strategy.",
+    "source": "https://www.themayor.eu/en/a/view/helsinki-imposes-lower-speed-limits-2723",
+    "image": "2_30kmZones.jpg"
+  },
+  {
+    "title": "Speed Cameras",
+    "summary": "Helsinki expanded the use of fixed automated speed cameras to stabilize traffic speeds and reduce high-end speeding.",
+    "caption": "Fixed speed cameras on Ring Road I helped reduce excessive speeding.",
+    "source": "https://nordicroads.com/speed-effects-of-automatic-enforcement-on-urban-streets/",
+    "image": "3_SpeedCamera.jpg"
+  },
+  {
+    "title": "Income-Based Fines",
+    "summary": "Finland’s unique “day-fine” model ties traffic penalties directly to personal income, creating a strong deterrent against dangerous driving.",
+    "caption": "Income-based fines make high-risk speeding financially consequential.",
+    "source": "https://poliisi.fi/en/automatic-traffic-surveillance",
+    "image": "4_IncomeBasedFines.png"
+  },
+  {
+    "title": "Pedestrian Safety",
+    "summary": "Helsinki conducted a citywide audit to identify hazardous pedestrian crossings. Dangerous points were removed, relocated, or redesigned.",
+    "caption": "Citywide audits helped eliminate unsafe pedestrian crossings.",
+    "source": "https://www.hel.fi/en/news/helsinki-aims-to-get-rid-of-dangerous-pedestrian-crossings-first-unmarked-crossings-introduced",
+    "image": "5_PedestrianSafety.png"
+  },
+  {
+    "title": "Cycling Infrastructure",
+    "summary": "Helsinki invested heavily in separated cycling corridors and high-frequency public transport. Reduced car dependency lowers overall exposure.",
+    "caption": "Mode shift reduces car volumes and creates safer environments.",
+    "source": "https://www.hel.fi/en/news/school-starting-parking-control-stepped-up-and-speed-limits-lowered",
+    "image": "6_CyclingInfra.jpg"
+  },
+  {
+    "title": "School Zone Safety",
+    "summary": "School-area slow zones, raised crossings and protected bike infrastructure prioritize society’s most vulnerable road users.",
+    "caption": "Children and active travelers are central to road-safety design.",
+    "source": "https://www.hel.fi/en/news/school-starting-parking-control-stepped-up-and-speed-limits-lowered",
+    "image": "7_SchoolZoneSafety.jpg"
+  },
+  {
+    "title": "Enforcement Against Impaired Driving",
+    "summary": "Extensive random breath tests and targeted operations ensure high detection probability for impaired driving.",
+    "caption": "Random breath-test campaigns contribute to low levels of impaired driving.",
+    "source": "https://poliisi.fi/en/-/police-will-do-more-narcotics-testing-in-traffic",
+    "image": "8_Enforcement.jpg"
+  },
+  {
+    "title": "Data-Driven Analysis",
+    "summary": "Systematic black-spot identification using long-term crash data is followed by prioritized engineering interventions.",
+    "caption": "Crash data informs where the city invests first.",
+    "source": "https://urbanfinland.com/2016/04/15/making-downtown-helsinki-more-walkable-its-time-for-a-grassroots-revolution/",
+    "image": "9_DataDriven.png"
+  }
+]

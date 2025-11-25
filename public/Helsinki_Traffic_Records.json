@@ -1,0 +1,57 @@
+[
+  {
+    "year": 2014,
+    "deaths": 229,
+    "injured": 6705
+  },
+  {
+    "year": 2015,
+    "deaths": 270,
+    "injured": 6408
+  },
+  {
+    "year": 2016,
+    "deaths": 258,
+    "injured": 5911
+  },
+  {
+    "year": 2017,
+    "deaths": 238,
+    "injured": 5574
+  },
+  {
+    "year": 2018,
+    "deaths": 239,
+    "injured": 5303
+  },
+  {
+    "year": 2019,
+    "deaths": 211,
+    "injured": 5013
+  },
+  {
+    "year": 2020,
+    "deaths": 223,
+    "injured": 4411
+  },
+  {
+    "year": 2021,
+    "deaths": 225,
+    "injured": 3886
+  },
+  {
+    "year": 2022,
+    "deaths": 196,
+    "injured": 3838
+  },
+  {
+    "year": 2023,
+    "deaths": 185,
+    "injured": 3642
+  },
+  {
+    "year": 2024,
+    "deaths": 179,
+    "injured": 3444
+  }
+]
