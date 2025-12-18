@@ -1,73 +1,28 @@
 # Helsinki Vision Zero Story
 
-An interactive data visualization exploring Helsinki's remarkable journey to achieving zero traffic-related fatalities through the Vision Zero policy framework.
+An interactive data visualization exploring Helsinki's remarkable journey to achieving zero traffic-related fatalities. This project demonstrates how the "Vision Zero" policy framework—combined with data-driven infrastructure changes—transformed urban safety between 2014 and 2024.
 
-## Overview
+## 📖 Overview
 
-This project tells the story of how Helsinki transformed its road network and traffic policies over a decade (2014–2024) to eliminate traffic deaths. Through an interactive scrollable experience, users explore:
+Helsinki transformed its road network and traffic policies over a decade to eliminate traffic deaths. This application tells that story through an interactive, scroll-based narrative. Users can explore:
 
-- **The Transformation**: A decade-long comparison slider showing the evolution of speed limits and road network fidelity
-- **Live Statistics**: Real-time accident data visualization tracking fatalities and injuries over time
-- **Comprehensive Safety Measures**: A detailed breakdown of the policies, engineering interventions, and strategies that drove Helsinki's success
+- **The Transformation**: A timeline comparison showing the evolution of speed limits (30km/h zones) and road network fidelity.
+- **Data-Driven Impact**: Visualization of accident statistics (2000–2024) correlated with specific policy interventions.
+- **Policy Breakdown**: Detailed analysis of the 9 key safety measures, from infrastructure redesigns to school zone interventions.
 
-## Key Features
+## 🛠 Tech Stack
 
-- **Interactive Comparison Slider**: Swipe between 2014 and 2024 maps to visualize network changes
-- **Dynamic Background**: Map imagery updates as you scroll, synchronized with traffic statistics
-- **Accident Statistics Chart**: Line chart tracking deaths and injuries across the decade
-- **Policy Cards**: Comprehensive overview of nine key safety initiatives with source attribution
-- **Responsive Design**: Optimized for desktop and mobile experiences
-
-## Tech Stack
-
-- **React** - UI framework
-- **Vite** - Build tool and dev server
-- **Tailwind CSS** - Utility-first styling
-- **Recharts** - Data visualization
-- **Lucide React** - Icon library
-
-## Getting Started
-
-### Installation
-
-```bash
-npm install
-```
-
-### Development
-
-```bash
-npm run dev
-```
-
-### Build
-
-```bash
-npm run build
-```
-
-## Project Structure
-
-```
-public/
-  ├── Helsinki_Traffic_Policies.json    # Policy data
-  ├── Helsinki_Traffic_Records.json     # Traffic statistics
-  └── [year].png                        # Road network maps (2014-2024)
-src/
-  ├── App.jsx                           # Main application component
-  ├── App.css                           # Component styles
-  ├── main.jsx                          # Entry point
-  └── index.css                         # Global styles
-```
+- **Core**: React 18, Vite
+- **Styling**: Tailwind CSS, Lucide React (Icons)
+- **Visualization**:
+  - **Recharts** (Statistical charts)
+  - **D3.js** (Data binding and custom interactions)
+  - **Kepler.gl** (Geospatial data rendering)
 
 ## Data Sources
 
-- **Traffic Statistics**: Helsinki Police Department & Finnish Transport Infrastructure Agency
-- **Road Network Maps**: City of Helsinki GIS data
-- **Policy Information**: City of Helsinki official announcements and Vision Zero documentation
-
-## References
-
-- [Helsinki Vision Zero Policy](https://www.hel.fi/en/)
-- [Finnish Transport Infrastructure Agency](https://vayla.fi/en)
-- [Vision Zero Initiative](https://visionzeroinitiative.com/)
+This project aggregates data from multiple open-source Finnish registries:
+- [Helsinki Region Infoshare (HRI):](https://hri.fi/fi/) District divisions, local speed limit shapefiles, and accident reports.
+- [Finnish Transport Infrastructure Agency (Väylävirasto):](https://vayla.fi/vaylista/aineistot/digiroad) "Digiroad" national road network data and speed camera locations.
+- [Statistics Finland (Tilastokeskus):](https://stat.fi/fi) Long-term accident statistics and educational institution locations.
+- [Digital Geography Lab:](https://www.helsinki.fi/en/researchgroups/digital-geography-lab) Accessibility and travel time matrices.
