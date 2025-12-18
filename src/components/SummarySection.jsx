@@ -8,7 +8,7 @@ export default function SummarySection() {
           {/* Left Column: Image */}
           <div className="relative">
             <img
-              src={"/news_headline.png"}
+              src={"news_headline.png"}
               alt="News Headline: Helsinki Celebrates One Year Without Traffic Deaths"
               className="w-full h-auto rounded-lg shadow-2xl border border-slate-800/50"
             />
