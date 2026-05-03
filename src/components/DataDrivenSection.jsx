@@ -37,6 +37,19 @@ export default function DataDrivenSection() {
 
             svg.selectAll("*").remove();
 
+            // Zoomable container — both layers go inside so zoom/pan applies together
+            const zoomGroup = svg.append("g").attr("class", "zoom-group");
+
+            const zoom = d3
+                .zoom()
+                .scaleExtent([0.5, 15])
+                .on("zoom", (event) => {
+                    zoomGroup.attr("transform", event.transform);
+                });
+
+            svg.call(zoom);
+            svg.node().__zoom__ = zoom;
+
             const [roads, accidents] = await Promise.all([
                 fetch(speedLimitDataURL).then((r) => r.json()),
                 fetch(helsinkiTrafficAccidentDataURL).then((r) => r.json()),
@@ -59,7 +72,7 @@ export default function DataDrivenSection() {
             const path = d3.geoPath(projection);
 
             // --- 1. Draw Road Background ---
-            svg
+            zoomGroup
                 .append("g")
                 .attr("class", "roads-layer")
                 .selectAll("path")
@@ -106,7 +119,7 @@ export default function DataDrivenSection() {
                 f._id = `${p.VV}-${lon.toFixed(5)}-${lat.toFixed(5)}-${i}`;
             });
 
-            const pointLayer = svg.append("g").attr("class", "accidents-layer");
+            const pointLayer = zoomGroup.append("g").attr("class", "accidents-layer");
             const tooltip = d3.select(tooltipRef.current);
 
             const severityLabel = (VAKAV_A) => {
@@ -156,7 +169,7 @@ export default function DataDrivenSection() {
                     .attr("cx", (d) => projection(d.geometry.coordinates)[0])
                     .attr("cy", (d) => projection(d.geometry.coordinates)[1])
                     .attr("fill", (d) => getSeverityColor(d.properties.VAKAV_A)) // Use helper here
-                    .attr("fill-opacity", 0.9)
+                    .attr("fill-opacity", 0.8)
                     .attr("stroke", "#454545")
                     .attr("stroke-width", 0.4)
                     .on("mousemove", (event, d) => {
@@ -236,6 +249,19 @@ export default function DataDrivenSection() {
         return () => clearInterval(id);
     }, [years, isPlaying]);
 
+    const handleZoomIn = () => {
+        const node = svgRef.current;
+        if (node?.__zoom__) d3.select(node).transition().duration(250).call(node.__zoom__.scaleBy, 1.5);
+    };
+    const handleZoomOut = () => {
+        const node = svgRef.current;
+        if (node?.__zoom__) d3.select(node).transition().duration(250).call(node.__zoom__.scaleBy, 1 / 1.5);
+    };
+    const handleZoomReset = () => {
+        const node = svgRef.current;
+        if (node?.__zoom__) d3.select(node).transition().duration(300).call(node.__zoom__.transform, d3.zoomIdentity);
+    };
+
     return (
         <div className="relative z-50 bg-[#0e1117] py-24 px-6 md:px-12 border-t border-slate-800">
             <div className="max-w-7xl mx-auto">
@@ -261,11 +287,6 @@ export default function DataDrivenSection() {
                                 yearStats.reduce((m, s) => Math.max(m, s.total), 0) || 1;
 
                             return (
-                                /* Responsive Changes:
-                                   1. min-w-[600px]: Forces horizontal scroll on mobile so bars stay touchable.
-                                   2. md:min-w-0: Resets width on desktop to fit container.
-                                   3. gap-1 md:gap-3: Tighter spacing on mobile.
-                                */
                                 <div className="flex items-end gap-1 md:gap-3 h-[240px] pb-2 min-w-[600px] md:min-w-0 px-1">
                                     {years.map((y) => {
                                         const s = yearStats.find((d) => d.year === y) || {
@@ -376,7 +397,32 @@ export default function DataDrivenSection() {
                 ref={wrapperRef}
                 className="relative max-w-6xl mx-auto h-[600px] rounded-xl overflow-hidden border border-slate-800 bg-black mt-4"
             >
-                <svg ref={svgRef} className="w-full h-full" />
+                <svg ref={svgRef} className="w-full h-full cursor-grab active:cursor-grabbing" />
+
+                {/* Zoom controls */}
+                <div className="absolute top-3 right-3 z-10 flex flex-col gap-1">
+                    <button
+                        onClick={handleZoomIn}
+                        title="Zoom in"
+                        className="w-8 h-8 bg-slate-800/90 border border-slate-600 text-white rounded-md hover:bg-slate-700 transition-colors text-lg font-bold flex items-center justify-center"
+                    >+</button>
+                    <button
+                        onClick={handleZoomOut}
+                        title="Zoom out"
+                        className="w-8 h-8 bg-slate-800/90 border border-slate-600 text-white rounded-md hover:bg-slate-700 transition-colors text-lg font-bold flex items-center justify-center"
+                    >−</button>
+                    <button
+                        onClick={handleZoomReset}
+                        title="Reset view"
+                        className="w-8 h-8 bg-slate-800/90 border border-slate-600 text-slate-300 rounded-md hover:bg-slate-700 transition-colors text-xs font-bold flex items-center justify-center"
+                    >⊙</button>
+                </div>
+
+                {/* Hint */}
+                <div className="absolute bottom-3 left-3 z-10 text-[10px] text-slate-500 pointer-events-none select-none">
+                    Scroll to zoom · Drag to pan
+                </div>
+
                 {/* Map Tooltip (D3 controlled) */}
                 <div
                     ref={tooltipRef}
